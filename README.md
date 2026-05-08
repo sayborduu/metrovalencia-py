@@ -1,82 +1,94 @@
-# metrovalencia
+<div align="center">
 
-Python SDK for MetroValencia API (`https://metroapi.alexbadi.es`).
+<img
+  src="./repo/Icon.ico"
+  alt="Picture"
+  style="height: 130px; border-radius: 20px;"
+/>
 
-## Installation
+# metrovalencia-py
 
-```bash
-pip install metrovalencia
-```
+  <a href="https://github.com/sayborduu/metrovalencia-py/stargazers">
+    <img src="https://img.shields.io/github/stars/sayborduu/metrovalencia-py?style=flat&logo=github" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/sayborduu/metrovalencia-py/releases">
+    <img src="https://img.shields.io/github/v/release/sayborduu/metrovalencia-py?style=flat&logo=github" alt="GitHub release">
+  </a>
 
-## Quick Start
+  Este es un paquete de Python para sacar datos de Metrovalencia usando MetroAPI (la API no oficial).
+
+<a href="https://dash.metroapi.alexbadi.es">panel API</a>
+•
+[documentación](repo/docs/README.md)
+•
+<a href="https://docs.metroapi.alexbadi.es">documentación MetroAPI</a>
+
+
+</div>
+
+## Un vistazo rápido
 
 ```python
 from metrovalencia import MetroValencia
 
 metro = MetroValencia(
-    app_name="myapp",
-    contact="dev@example.com"
+    app_name="miapp",
+    contact="dev@ejemplo.com"
 )
 
 previsiones = metro.previsiones.get("Alameda")
-print(previsiones)
+for p in previsiones.previsiones:
+    print(f"Línea {p.line} va a {p.destino} y llega en {p.seconds}s")
+
+result = metro.paradas.buscar("Marítim")
+print(f"He encontrado {len(result.paradas)} paradas")
+
+ruta = metro.rutas.rutap("Colón", "Bailén")
+print(f"Vas a tardar como {ruta.tiempo_total_minutos:.2f} minutillos")
+
+metro.close()
 ```
 
-## Authentication
+## Documentación
 
-The API requires a User-Agent header identifying your application. Provide it in one of three ways:
+Puedes ver la documentación en **[repo/docs/README.md](repo/docs/README.md)**.
 
-**Option 1 — Manual override:**
-```python
-metro = MetroValencia(user_agent="myapp/1.0 (Python; contact=me@email.com)")
-```
+## Datos
 
-**Option 2 — Auto-generated (recommended):**
+Puedes elegir el formato de las respuestas usando `response_type`. Hay tres opciones:
+
+- **`class`** (por defecto): Datos en `dataclasses`
+- **`json`**: Respuesta exacta del servidor.
+- **`parsed_json`**: JSON pero más limpio (se quitan los `null` y se utiliza `snake_case`).
+
 ```python
 metro = MetroValencia(
-    app_name="myapp",
-    app_version="1.0",   # optional, defaults to "1.0"
-    contact="me@email.com"
-)
-# Generates: "myapp/1.0 (Python; contact=me@email.com)"
-```
-
-**Option 3 — With API key:**
-```python
-metro = MetroValencia(
-    app_name="myapp",
-    contact="me@email.com",
-    api_key="mv_..."
+    app_name="miapp",
+    contact="dev@ejemplo.com",
+    response_type="class"  # por defecto
 )
 ```
 
-If neither `user_agent` nor `contact` is provided, a `MissingContactError` is raised.
+## ¿Qué puedes hacer?
 
-## Updating `paradas.json`
+- Puedes ver previsiones o el estado de las paradas
+- Ver las incidencias de transporte o accesibilidad
+    - Ver incidencias v2, en pruebas, basadas en los Tweets y Incidencias de la API, categorizadas con IA.
+- Ver información de tarjetas de metro
+- Hacer rutas entre dos paradas
+- Información, como las tarifas, zonas
+- Obtener las noticias de metrovalencia
 
-The `paradas.json` file is bundled with the package. To refresh it:
 
-```bash
-python scripts/fetch_paradas.py
-```
+## Historial de Estrellas
 
-## Resources
+<a href="https://www.star-history.com/?repos=sayborduu%2Fmetrovalencia-py&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=sayborduu/metrovalencia-py&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=sayborduu/metrovalencia-py&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=sayborduu/metrovalencia-py&type=date&legend=top-left" />
+ </picture>
+</a>
 
-- `previsiones.get(parada)` — Get predictions (accepts stop ID or name)
-- `previsiones.parsed(parada_id)` — Get parsed predictions
-- `previsiones.estado(parada_id)` — Get station status
-- `paradas.all()` — List all stops
-- `paradas.buscar(q)` — Search stops by name
-- `incidencias.transporte()` — Get transport incidents
-- `incidencias.accesibilidad()` — Get accessibility incidents
-- `tarjetas.info(numero)` — Get card info
-- `tarjetas.viajes(numero)` — Get card travel history
-- `rutas.plan(origen_id, destino_id, hora_salida, fecha)` — Plan route (POST)
-- `rutas.rutap(origen, destino)` — Get route between stops
-- `tarifas.get(idioma)` — Get fares (ES, CA, EN)
-- `comunicaciones.get()` — Get communications
-- `v2.incidencias.get()` — Get incidents (v2)
-
-## License
-
+## Licencia
 MIT
