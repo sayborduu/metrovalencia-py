@@ -1,0 +1,1 @@
+from metrovalencia.resources.base import Resource
