@@ -6,7 +6,7 @@ import httpx
 
 def main():
     url = "https://metroapi.alexbadi.es/metrodata/paradas"
-    headers = {"User-Agent": "metrovalencia-py/0.1.0 (Python; contact=dev@alexbadi.es)"}
+    headers = {"User-Agent": "metrovalencia-py/0.1.1 (Python; contact=dev@alexbadi.es)"}
 
     response = httpx.get(url, headers=headers, timeout=30.0)
     response.raise_for_status()

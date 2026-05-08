@@ -42,7 +42,7 @@ pip install .
 import metrovalencia
 
 print(metrovalencia.__version__)
-# > 0.1.0
+# > 0.1.1
 ```
 
 ## Dependencias

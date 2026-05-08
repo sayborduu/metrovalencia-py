@@ -84,7 +84,7 @@ Permite determinar cómo se devolverá la respuesta a los procesos generales de 
 ```python
 from metrovalencia import __version__
 
-print(__version__)  # Ej. "0.1.0"
+print(__version__)  # Ej. "0.1.1"
 ```
 
 ---
