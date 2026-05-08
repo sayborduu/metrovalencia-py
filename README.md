@@ -1,9 +1,9 @@
 <div align="center">
 
 <img
-  src="./repo/Icon.ico"
+  src="./repo/Icon.png"
   alt="Picture"
-  style="height: 130px; border-radius: 20px;"
+  style="height: 130px;"
 />
 
 # metrovalencia-py

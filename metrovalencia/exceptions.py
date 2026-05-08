@@ -1,5 +1,8 @@
+from typing import Optional
+
+
 class MetroAPIError(Exception):
-    def __init__(self, message: str, status_code: int | None = None):
+    def __init__(self, message: str, status_code: Optional[int] = None):
         self.message = message
         self.status_code = status_code
         super().__init__(self.__str__())
@@ -19,7 +22,7 @@ class NotFoundError(MetroAPIError):
 
 
 class RateLimitError(MetroAPIError):
-    def __init__(self, message: str, status_code: int | None = None, retry_after: int | None = None):
+    def __init__(self, message: str, status_code: Optional[int] = None, retry_after: Optional[int] = None):
         self.retry_after = retry_after
         super().__init__(message, status_code)
 
