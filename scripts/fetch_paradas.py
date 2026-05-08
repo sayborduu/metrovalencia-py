@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# Run this script to refresh paradas.json:
-# python scripts/fetch_paradas.py
 
 import json
 import httpx
