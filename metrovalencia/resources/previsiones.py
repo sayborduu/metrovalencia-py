@@ -1,3 +1,5 @@
+from typing import Union
+
 from rapidfuzz import fuzz
 
 from metrovalencia.resources.base import Resource
@@ -9,7 +11,7 @@ from metrovalencia.models.previsiones import (
 
 
 class Previsiones(Resource):
-    def _resolve_parada(self, parada: int | str) -> int:
+    def _resolve_parada(self, parada: Union[int, str]) -> int:
         if isinstance(parada, int):
             return parada
         paradas = Paradas(self._http)
@@ -20,14 +22,14 @@ class Previsiones(Resource):
             return matches[0][0]["id"]
         raise ValueError(f"Could not resolve parada: {parada}")
 
-    def get(self, parada: int | str):
+    def get(self, parada: Union[int, str]):
         """Get parsed predictions for a stop. Accepts stop ID (int) or name (str)."""
         parada_id = self._resolve_parada(parada)
         resp = self._http.get(f"/prevision/{parada_id}/parse")
         data = resp.json()
         return self._process_response(data, PrevisionesResponse)
 
-    def estado(self, parada: int | str):
+    def estado(self, parada: Union[int, str]):
         """Get station status. Accepts stop ID (int) or name (str)."""
         parada_id = self._resolve_parada(parada)
         resp = self._http.get(f"/prevision/{parada_id}/estado")
