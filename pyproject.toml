@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "metrovalencia"
-version = "0.1.1"
+version = "0.1.2"
 description = "Un paquete de Python para obtener datos de Metrovalencia usando MetroAPI, la API no oficial."
 readme = "README.md"
 requires-python = ">=3.9"
