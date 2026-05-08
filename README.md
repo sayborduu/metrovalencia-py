@@ -38,13 +38,16 @@ metro = MetroValencia(
 
 previsiones = metro.previsiones.get("Alameda")
 for p in previsiones.previsiones:
-    print(f"Línea {p.line} va a {p.destino} y llega en {p.seconds}s")
+  print(f"L{p.line} {p.destino}: llega en {p.seconds}s")
 
 result = metro.paradas.buscar("Marítim")
-print(f"He encontrado {len(result.paradas)} paradas")
+print(f"Encontrado {len(result.paradas)} paradas")
+for p in result.paradas:
+  print(p)
 
 ruta = metro.rutas.rutap("Colón", "Bailén")
-print(f"Vas a tardar como {ruta.tiempo_total_minutos:.2f} minutillos")
+print(f"Tiempo entre Colón y Bailén: {ruta.tiempo_total_minutos:.2f} minutos.") 
+print(f"Tiempo entre paradas: {ruta.ruta[len(ruta.ruta) - 1].segundos_acumulados - ruta.ruta[0].segundos_acumulados} segundos")
 
 metro.close()
 ```
