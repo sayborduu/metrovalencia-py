@@ -1,7 +1,7 @@
 <div align="center">
 
 <img
-  src="/repo/Icon.png"
+  src="https://raw.githubusercontent.com/sayborduu/metrovalencia-py/refs/heads/main/repo/Icon.png"
   alt="Picture"
   style="height: 130px;"
 />
@@ -9,10 +9,13 @@
 # metrovalencia-py
 
   <a href="https://github.com/sayborduu/metrovalencia-py/stargazers">
-    <img src="https://img.shields.io/github/stars/sayborduu/metrovalencia-py?style=flat&logo=github" alt="GitHub stars">
+    <img src="https://img.shields.io/github/stars/sayborduu/metrovalencia-py?style=flat&logo=github&" alt="Estrellas de GitHub">
   </a>
   <a href="https://github.com/sayborduu/metrovalencia-py/releases">
-    <img src="https://img.shields.io/github/v/release/sayborduu/metrovalencia-py?style=flat&logo=github" alt="GitHub release">
+    <img src="https://img.shields.io/github/v/release/sayborduu/metrovalencia-py?logo=github" alt="Versión de GitHub">
+  </a>
+  <a href="https://github.com/sayborduu/metrovalencia-py/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/sayborduu/metrovalencia-py?logo=github" alt="Licencia">
   </a>
 
   Un paquete de Python para obtener datos de Metrovalencia usando MetroAPI, la API no oficial.
