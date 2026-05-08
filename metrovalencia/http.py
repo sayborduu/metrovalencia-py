@@ -1,4 +1,5 @@
 import httpx
+from typing import Optional
 
 from metrovalencia import exceptions
 
@@ -8,7 +9,7 @@ class HttpClient:
         self,
         base_url: str,
         user_agent: str,
-        api_key: str | None = None,
+        api_key: Optional[str] = None,
         response_type: str = "class",
     ):
         self._base_url = base_url.rstrip("/")
@@ -43,12 +44,12 @@ class HttpClient:
         response.raise_for_status()
         return response
 
-    def get(self, path: str, params: dict | None = None) -> httpx.Response:
+    def get(self, path: str, params: Optional[dict] = None) -> httpx.Response:
         url = f"{self._base_url}{path}"
         response = self._client.get(url, headers=self._build_headers(), params=params)
         return self._handle_response(response)
 
-    def post(self, path: str, json: dict | None = None) -> httpx.Response:
+    def post(self, path: str, json: Optional[dict] = None) -> httpx.Response:
         url = f"{self._base_url}{path}"
         response = self._client.post(url, headers=self._build_headers(), json=json)
         return self._handle_response(response)

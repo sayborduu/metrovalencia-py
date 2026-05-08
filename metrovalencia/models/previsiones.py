@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from typing import Optional, List
+from typing import Optional, List, Dict
 
 
 @dataclass
@@ -41,7 +41,7 @@ class AforoBloqueado:
     hasta: Optional[str] = None
 
     @classmethod
-    def from_dict(cls, data: dict | None) -> "AforoBloqueado":
+    def from_dict(cls, data: Optional[Dict]) -> "AforoBloqueado":
         if data is None:
             return cls()
         return cls(

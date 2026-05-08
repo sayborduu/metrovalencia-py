@@ -1,3 +1,5 @@
+from typing import Optional
+
 from metrovalencia.resources.base import Resource
 from metrovalencia.models.rutas import RutaPlan, RutaP
 
@@ -7,8 +9,8 @@ class Rutas(Resource):
         self,
         origen_id: int,
         destino_id: int,
-        hora_salida: str | None = None,
-        fecha: str | None = None,
+        hora_salida: Optional[str] = None,
+        fecha: Optional[str] = None,
     ):
         payload = {
             "origen": origen_id,

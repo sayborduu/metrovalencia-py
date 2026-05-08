@@ -1,3 +1,5 @@
+from typing import Optional
+
 from metrovalencia.http import HttpClient
 from metrovalencia import exceptions
 from metrovalencia.resources import (
@@ -15,11 +17,11 @@ from metrovalencia.resources.v2 import V2Client
 class MetroValencia:
     def __init__(
         self,
-        user_agent: str | None = None,
-        app_name: str | None = None,
+        user_agent: Optional[str] = None,
+        app_name: Optional[str] = None,
         app_version: str = "1.0",
-        contact: str | None = None,
-        api_key: str | None = None,
+        contact: Optional[str] = None,
+        api_key: Optional[str] = None,
         base_url: str = "https://metroapi.alexbadi.es",
         response_type: str = "class",
     ):

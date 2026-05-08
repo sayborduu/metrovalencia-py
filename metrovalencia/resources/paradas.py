@@ -1,11 +1,12 @@
 import json
 from pathlib import Path
+from typing import Optional, List
 
 from metrovalencia.resources.base import Resource
 from metrovalencia.models.paradas import Parada, ParadasResponse, ParadaAll
 
 
-_paradas_cache: list[dict] | None = None
+_paradas_cache: Optional[List[dict]] = None
 
 
 def _get_paradas_path() -> Path:
