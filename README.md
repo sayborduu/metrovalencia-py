@@ -1,7 +1,7 @@
 <div align="center">
 
 <img
-  src="./repo/Icon.png"
+  src="/repo/Icon.png"
   alt="Picture"
   style="height: 130px;"
 />
