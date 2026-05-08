@@ -15,7 +15,7 @@
     <img src="https://img.shields.io/github/v/release/sayborduu/metrovalencia-py?style=flat&logo=github" alt="GitHub release">
   </a>
 
-  Este es un paquete de Python para sacar datos de Metrovalencia usando MetroAPI (la API no oficial).
+  Un paquete de Python para obtener datos de Metrovalencia usando MetroAPI, la API no oficial.
 
 <a href="https://dash.metroapi.alexbadi.es">panel API</a>
 •
@@ -26,7 +26,7 @@
 
 </div>
 
-## Un vistazo rápido
+## Inicio rápido
 
 ```python
 from metrovalencia import MetroValencia
