@@ -1,6 +1,8 @@
+from importlib.metadata import version
+
 from metrovalencia.client import MetroValencia
 from metrovalencia import exceptions
 
-__version__ = "0.1.1"
+__version__ = version("metrovalencia")
 
 __all__ = ["MetroValencia", "exceptions"]
